@@ -1,0 +1,32 @@
+name: Taller Final primer modulo (CI/CD)
+
+on: 
+  push: 
+    branches: [ main ]
+
+jobs: 
+  ci:
+    name: Integración Continua (CI)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Verificar existencia de archivos requeridos
+        run: |
+          if [ ! -f home.html ]; then
+            echo "Error: home.html no existe."
+            exit 1
+          fi
+          if [ ! -f style.css ]; then
+            echo "Error: style.css no existe."
+            exit 1
+          fi
+          echo "Archivos requeridos existen."
+
+  cd:
+    name: Despliegue Continuo (CD)
+    runs-on: ubuntu-latest 
+    steps: 
+      - name: Simulación de despliegue
+        run: echo "Artefactos listos para el desplieguue"
