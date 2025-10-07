@@ -1,4 +1,4 @@
-name: Taller Final modulo 1 (CI/CD)
+name: Taller Final primer modulo (CI/CD)
 
 on: 
   push: 
